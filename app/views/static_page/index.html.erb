@@ -1,0 +1,20 @@
+<h1>Flickr Feed</h1>
+
+<%= form_with(url: '/', method: :get) do |f| %>
+  <div class="field">
+    <%= f.label :user_id %>
+    <%= f.text_field :user_id %>
+  </div>
+
+  <%= f.submit 'Show Feed' %>
+<% end %>
+
+<% if params[:commit] %>
+  <div class="photo-wrapper">
+    <% @photos.each do |photo| %>
+      <%= link_to "https://www.flickr.com/photos/#{photo['owner']}/#{photo['id']}", target: '_blank' do %>
+        <%= image_tag "https://live.staticflickr.com/#{photo['server']}/#{photo['id']}_#{photo['secret']}_s.jpg" %>
+      <% end %>
+    <% end %>
+  </div>
+<% end %>
