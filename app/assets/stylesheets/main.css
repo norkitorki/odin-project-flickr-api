@@ -1,0 +1,67 @@
+body {
+  font-family: sans-serif, Verdana, Geneva, Tahoma;
+  background-color: #000000;
+  color: #ffffff;
+}
+
+main { padding: 20px; }
+
+a { color: inherit; }
+
+.heading { font-size: 42px; }
+
+.notice { color: #007900; }
+
+.alert { color: #8f0303; }
+
+.user-wrapper h2 { font-size: 32px; }
+
+.flickr-form {
+  width: max-content;
+  border: 5px solid #ffffff21;
+  padding: 20px;
+}
+
+.flickr-form label { font-weight: bold; }
+
+.flickr-form input[type="text"], .flickr-form select {
+  padding: 10px;
+  border-radius: 4px;
+}
+
+.flickr-form input[type="submit"] { 
+  width: min-content;
+  padding: 4px 10px 4px 10px;
+}
+
+.flickr-form .notes {
+  font-size: 10px;
+}
+
+.photo-wrapper h3 {
+  margin: 20px 0 20px 0;
+  font-size: 30px;
+}
+
+.photos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.photos li {
+  position: relative;
+  display: contents;
+}
+
+.photos li a {
+  display: contents;
+  height: max-content;
+}
+
+.photos img {
+  vertical-align: middle;
+  transition: all ease-in .2s;
+}
+
+.photos img:hover { filter: brightness(70%); }
