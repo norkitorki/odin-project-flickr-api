@@ -1,0 +1,15 @@
+<%= form_with(url: root_path, method: :get, class: 'flickr-form align-self-center flex column gap-10') do |f| %>
+  <div class="field flex gap-10 align-center">
+    <%= f.label :user_id, 'User ID' %>
+    <%= f.text_field :user_id, value: params[:user_id], autofocus: true, required: true %>
+
+    <%= f.label :size, 'Photo Sizes' %>
+    <%= f.select :size, [['small', '_m'], ['medium', ''], ['large', '_b']] %>
+  </div>
+
+  <%= f.submit 'Show Gallery', class: 'align-self-center' %>
+
+  <div class="notes">
+    <p>*This form will query the last 500 public photos</p>
+  </div>
+<% end %>
