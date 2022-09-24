@@ -11,6 +11,16 @@
   </head>
 
   <body>
-    <%= yield %>
+    <main class="flex column gap-20">
+      <%= yield %>
+
+      <% if flash.any? %>
+        <div class="flash align-self-center">
+          <% flash.each do |type, msg| %>
+            <p class="<%= type %>"><%= msg %></p>
+          <% end %>
+        </div>
+      <% end %>
+    </main>
   </body>
 </html>
