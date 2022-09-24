@@ -14,7 +14,7 @@ a { color: inherit; }
 
 .alert { color: #8f0303; }
 
-.user-wrapper h2 { font-size: 32px; }
+.user { font-size: 32px; }
 
 .flickr-form {
   width: max-content;
