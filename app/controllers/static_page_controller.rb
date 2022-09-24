@@ -5,7 +5,12 @@ class StaticPageController < ApplicationController
 
   def index
     if params[:commit]
-      @photos = @flickr.photos.search(format: :json, user_id: params[:user_id], per_page: 500)
+
+  private
+
+  def flickr_params
+    params.permit(:user_id, :size, :commit)
+  end
     end
   end
 end
