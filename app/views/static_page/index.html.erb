@@ -4,15 +4,18 @@
 
   </div>
 
-  <%= f.submit 'Show Feed' %>
-<% end %>
-
-<% if params[:commit] %>
-  <div class="photo-wrapper">
-    <% @photos.each do |photo| %>
-      <%= link_to "https://www.flickr.com/photos/#{photo['owner']}/#{photo['id']}", target: '_blank' do %>
-        <%= image_tag "https://live.staticflickr.com/#{photo['server']}/#{photo['id']}_#{photo['secret']}_s.jpg" %>
-      <% end %>
+  <div class="photo-wrapper flex column">
+    <% @photos_by_year.each do |year, photos| %>
+      <h3 class="align-self-center"><%= year %></h3>
+      <ul class="photos">
+        <% photos.each do |photo| %>
+          <li>
+            <%= link_to "https://www.flickr.com/photos/#{photo['owner']}/#{photo['id']}", target: '_blank', title: photo['title'], alt: photo['title'] do %>
+              <%= image_tag "https://live.staticflickr.com/#{photo['server']}/#{photo['id']}_#{photo['secret']}#{@size}.jpg" %>
+            <% end %>
+          </li>
+        <% end %>
+      </ul>
     <% end %>
   </div>
 <% end %>
