@@ -1,9 +1,7 @@
 <h1 class="heading align-self-center">Flickr Gallery</h1>
 
-<%= form_with(url: '/', method: :get) do |f| %>
-  <div class="field">
-    <%= f.label :user_id %>
-    <%= f.text_field :user_id %>
+<%= render 'form' %>
+
   </div>
 
   <%= f.submit 'Show Feed' %>
