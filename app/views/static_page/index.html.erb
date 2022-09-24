@@ -2,7 +2,8 @@
 
 <%= render 'form' %>
 
-  </div>
+<% if params[:commit] %>
+  <h2 class="user align-self-center"><%= link_to @user['username'], @user['profileurl'], target: '_blank' %>'s photos</h2>
 
   <div class="photo-wrapper flex column">
     <% @photos_by_year.each do |year, photos| %>
