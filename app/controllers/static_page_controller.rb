@@ -20,6 +20,10 @@ class StaticPageController < ApplicationController
     FLICKR.people.getPublicPhotos(user_id: user_id, extras: 'date_upload', per_page: 500)
   end
 
+  def photos_by_year(photos)
+    photos.each_with_object(Hash.new { |h, k| h[k] = [] }) do |photo, hash|
+      upload_year = Time.at(photo['dateupload'].to_i).year
+      hash[upload_year] << photo
     end
   end
 end
