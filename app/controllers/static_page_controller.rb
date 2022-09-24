@@ -1,7 +1,7 @@
 require 'flickr'
 
 class StaticPageController < ApplicationController
-  before_action { @flickr = Flickr.new }
+  FLICKR = Flickr.new
 
   def index
     if params[:commit]
