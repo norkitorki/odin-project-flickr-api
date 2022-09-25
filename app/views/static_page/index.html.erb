@@ -2,21 +2,12 @@
 
 <%= render 'form' %>
 
-<% if params[:commit] %>
-  <h2 class="user align-self-center"><%= link_to @user['username'], @user['profileurl'], target: '_blank' %>'s photos</h2>
+<h2 class="gallery-heading align-self-center">
+  <% if @user %>
+    <%= link_to @user['username'], @user['profileurl'], target: '_blank' %>'s photos
+  <% else %>
+    Recent Photos
+  <% end %>
+</h2>
 
-  <div class="photo-wrapper flex column">
-    <% @photos_by_year.each do |year, photos| %>
-      <h3 class="align-self-center"><%= year %></h3>
-      <ul class="photos">
-        <% photos.each do |photo| %>
-          <li>
-            <%= link_to "https://www.flickr.com/photos/#{photo['owner']}/#{photo['id']}", target: '_blank', title: photo['title'], alt: photo['title'] do %>
-              <%= image_tag "https://live.staticflickr.com/#{photo['server']}/#{photo['id']}_#{photo['secret']}#{@size}.jpg" %>
-            <% end %>
-          </li>
-        <% end %>
-      </ul>
-    <% end %>
-  </div>
-<% end %>
+<%= render 'photo_feed', photos_by_year: @photos_by_year %>
