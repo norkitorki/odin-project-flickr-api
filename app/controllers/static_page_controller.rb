@@ -5,15 +5,15 @@ class StaticPageController < ApplicationController
   EXTRAS = 'date_upload, url_m'
 
   def index
-    if params[:commit]
-      begin
+    begin
+      if params[:commit]
         @user = query_user(flickr_params[:user_id])
-        @photos = query_photos(flickr_params[:user_id])
-        @photos_by_year = photos_by_year(@photos)
+        @user_photos = user_photos(flickr_params[:user_id])
         @size = flickr_params[:size]
-      rescue Flickr::FailedResponse
-        redirect_to root_path, status: :see_other, alert: 'Unable to find a user with the provided user id.'
       end
+      @photos_by_year = photos_by_year(@user_photos || recent_photos)
+    rescue Flickr::FailedResponse
+      redirect_to root_path, status: :see_other, alert: 'Unable to find a user with the provided user id.'
     end
   end
 
