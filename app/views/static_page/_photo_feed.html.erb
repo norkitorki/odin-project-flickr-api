@@ -1,0 +1,14 @@
+<div class="photo-wrapper flex column">
+  <% photos_by_year.each do |year, photos| %>
+    <h3 class="align-self-center"><%= year %></h3>
+    <ul class="photos">
+      <% photos.each do |photo| %>
+        <li>
+          <%= link_to "https://www.flickr.com/photos/#{photo['owner']}/#{photo['id']}", target: '_blank', title: photo['title'], alt: photo['title'] do %>
+            <%= image_tag photo['url_m'].to_s.sub('.jpg', "#{@size}.jpg") %>
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
+  <% end %>
+</div>
