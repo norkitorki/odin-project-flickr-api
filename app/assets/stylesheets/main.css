@@ -64,4 +64,7 @@ a { color: inherit; }
   transition: all ease-in .2s;
 }
 
-.photos img:hover { filter: brightness(70%); }
+.photos img:hover { 
+  filter: brightness(70%);
+  transform: scale(1.10); 
+}
