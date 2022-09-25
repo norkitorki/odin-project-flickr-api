@@ -27,8 +27,9 @@ class StaticPageController < ApplicationController
     FLICKR.people.getInfo(user_id: user_id)
   end
 
-  def query_photos(user_id)
-    FLICKR.people.getPublicPhotos(user_id: user_id, extras: 'date_upload', per_page: 500)
+  def user_photos(user_id)
+    FLICKR.people.getPublicPhotos(user_id: user_id, extras: EXTRAS, per_page: 500)
+  end
   end
 
   def photos_by_year(photos)
