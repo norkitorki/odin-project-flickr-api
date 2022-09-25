@@ -2,6 +2,7 @@ require 'flickr'
 
 class StaticPageController < ApplicationController
   FLICKR = Flickr.new
+  EXTRAS = 'date_upload, url_m'
 
   def index
     if params[:commit]
